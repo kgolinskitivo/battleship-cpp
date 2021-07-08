@@ -252,7 +252,25 @@ namespace Battleship
 
     bool Program::IsEndOfTheGame()
     {
-        //TODO we are waiting for info how to check that ship is dead
+        bool isEnd = true;
+        for (auto ship  = myFleet.begin(); ship != myFleet.end(); ++ship) {
+            if (!GameController::GameController::IsSunk(*ship)) {
+               isEnd = false;
+               break;
+            }
+        }
+        if (isEnd) {
+            return true;
+        }
+
+        isEnd = true;
+        for (auto ship = enemyFleet.begin(); ship != enemyFleet.end(); ++ship) {
+            if (!GameController::GameController::IsSunk(*ship)) {
+               isEnd = false;
+               break;
+            }
+        }
+
         return false;
     }
 
