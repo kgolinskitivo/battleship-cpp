@@ -38,6 +38,8 @@ namespace Battleship
 	public:
 	  static Position ParsePosition(string &input);
 	  static Position GetRandomPosition();
+
+      static bool IsPositionOnGrid(const Position& gridStart, const Position& gridEnd, Position& position);
 	};
   }
 }

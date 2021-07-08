@@ -67,3 +67,54 @@ void ParsePositionTests :: ParseInvalidPositionTest(void)
     }
 }
 
+void ParsePositionTests :: CheckValidPositionOnGridTest(void)
+{
+    const Position startPos(Letters::A, 1);
+    const Position endPos(Letters::H, 8);
+    {
+        Position positionUnderTest(Letters::A, 1);
+        bool result = Program::IsPositionOnGrid(startPos, endPos, positionUnderTest);
+        CPPUNIT_ASSERT(result);
+    }
+    {
+        Position positionUnderTest(Letters::H, 1);
+        bool result = Program::IsPositionOnGrid(startPos, endPos, positionUnderTest);
+        CPPUNIT_ASSERT(result);
+    }
+    {
+        Position positionUnderTest(Letters::A, 8);
+        bool result = Program::IsPositionOnGrid(startPos, endPos, positionUnderTest);
+        CPPUNIT_ASSERT(result);
+    }
+    {
+        Position positionUnderTest(Letters::H, 8);
+        bool result = Program::IsPositionOnGrid(startPos, endPos, positionUnderTest);
+        CPPUNIT_ASSERT(result);
+    }
+}
+
+void ParsePositionTests :: CheckInvalidPositionOnGridTest(void)
+{
+    const Position startPos(Letters::A, 1);
+    const Position endPos(Letters::H, 8);
+    {
+        Position positionUnderTest((Letters)'q', 1);
+        bool result = Program::IsPositionOnGrid(startPos, endPos, positionUnderTest);
+        CPPUNIT_ASSERT(!result);
+    }
+    {
+        Position positionUnderTest((Letters)'q', 0);
+        bool result = Program::IsPositionOnGrid(startPos, endPos, positionUnderTest);
+        CPPUNIT_ASSERT(!result);
+    }
+    {
+        Position positionUnderTest(Letters::A, 9);
+        bool result = Program::IsPositionOnGrid(startPos, endPos, positionUnderTest);
+        CPPUNIT_ASSERT(!result);
+    }
+    {
+        Position positionUnderTest(Letters::A, 0);
+        bool result = Program::IsPositionOnGrid(startPos, endPos, positionUnderTest);
+        CPPUNIT_ASSERT(!result);
+    }
+}
