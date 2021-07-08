@@ -271,7 +271,7 @@ namespace Battleship
             }
         }
 
-        return false;
+        return isEnd;
     }
 
     void Program::InitializeGame()
