@@ -263,6 +263,32 @@ namespace Battleship
       InitializeEnemyFleet(enemyFleet);
     }
 
+    void Program::InitializeEnemyFleet(list<Ship>& Fleet)
+    {
+//        using fun = void (list<Ship> &Fleet);
+//        fun tab[] = {
+//                        &Program::InitializeEnemyFleet,
+//        };
+
+        switch (rand() % 5) {
+            case 0:
+                InitializeEnemyFleet1(Fleet);
+                break;
+            case 1:
+                InitializeEnemyFleet2(Fleet);
+                break;
+            case 2:
+                InitializeEnemyFleet3(Fleet);
+                break;
+            case 3:
+                InitializeEnemyFleet4(Fleet);
+                break;
+            case 4:
+                InitializeEnemyFleet5(Fleet);
+                break;
+        }
+    }
+
 	void Program::InitializeMyFleet()
 	{
 		myFleet = GameController::GameController::InitializeShips();
@@ -299,7 +325,7 @@ namespace Battleship
 		cout << Colours::colorEnd;
 	}
 
-	void Program::InitializeEnemyFleet(list<Ship>& Fleet)
+	void Program::InitializeEnemyFleet1(list<Ship>& Fleet)
 	{
 		Fleet = GameController::GameController::InitializeShips();
 
@@ -339,5 +365,206 @@ namespace Battleship
 			}
 		});
 	}
+
+	void Program::InitializeEnemyFleet2(list<Ship>& Fleet)
+	    {
+	        Fleet = GameController::GameController::InitializeShips();
+	        for_each(Fleet.begin(), Fleet.end(), [](Ship& ship)
+	        {
+	            if (ship.Name == "Aircraft Carrier")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::B, 8));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::C, 8));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::D, 8));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::E, 8));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::F, 8));
+	            }
+	            if (ship.Name == "Battleship")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::H, 3));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::H, 4));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::H, 5));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::H, 6));
+	            }
+	            if (ship.Name == "Submarine")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::D, 1));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::E, 1));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::F, 1));
+	            }
+	            if (ship.Name == "Destroyer")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::D, 3));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::D, 4));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::D, 5));
+	            }
+	            if (ship.Name == "Patrol Boat")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::A, 2));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::B, 2));
+	            }
+	        });
+	    }
+
+	    void Program::InitializeEnemyFleet3(list<Ship>& Fleet)
+	    {
+	        Fleet = GameController::GameController::InitializeShips();
+	        for_each(Fleet.begin(), Fleet.end(), [](Ship& ship)
+	        {
+	            if (ship.Name == "Aircraft Carrier")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::H, 3));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::H, 4));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::H, 5));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::H, 6));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::H, 7));
+	            }
+	            if (ship.Name == "Battleship")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::A, 6));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::B, 6));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::C, 6));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::D, 6));
+	            }
+	            if (ship.Name == "Submarine")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::D, 1));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::D, 2));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::D, 3));
+	            }
+	            if (ship.Name == "Destroyer")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::F, 1));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::G, 1));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::H, 1));
+	            }
+	            if (ship.Name == "Patrol Boat")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::C, 7));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::C, 8));
+	            }
+	        });
+	    }
+
+	    void Program::InitializeEnemyFleet4(list<Ship>& Fleet)
+	    {
+	        Fleet = GameController::GameController::InitializeShips();
+	        for_each(Fleet.begin(), Fleet.end(), [](Ship& ship)
+	        {
+	            if (ship.Name == "Aircraft Carrier")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::A, 1));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::A, 2));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::A, 3));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::A, 4));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::A, 5));
+	            }
+	            if (ship.Name == "Battleship")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::C, 1));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::C, 2));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::C, 3));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::C, 4));
+	            }
+	            if (ship.Name == "Submarine")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::E, 3));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::F, 3));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::G, 3));
+	            }
+	            if (ship.Name == "Destroyer")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::A, 7));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::B, 7));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::C, 7));
+	            }
+	            if (ship.Name == "Patrol Boat")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::G, 8));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::H, 8));
+	            }
+	        });
+	    }
+
+	    void Program::InitializeEnemyFleet5(list<Ship>& Fleet)
+	    {
+	        Fleet = GameController::GameController::InitializeShips();
+	        for_each(Fleet.begin(), Fleet.end(), [](Ship& ship)
+	        {
+	            if (ship.Name == "Aircraft Carrier")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::D, 6));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::E, 6));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::F, 6));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::G, 6));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::H, 6));
+	            }
+	            if (ship.Name == "Battleship")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::D, 1));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::D, 2));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::D, 3));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::D, 4));
+	            }
+	            if (ship.Name == "Submarine")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::B, 3));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::B, 4));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::B, 5));
+	            }
+	            if (ship.Name == "Destroyer")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::A, 8));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::B, 8));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::C, 8));
+	            }
+	            if (ship.Name == "Patrol Boat")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::G, 1));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::G, 2));
+	            }
+	        });
+	    }
+	    void Program::InitializeEnemyFleet6(list<Ship>& Fleet)
+	    {
+	        Fleet = GameController::GameController::InitializeShips();
+	        for_each(Fleet.begin(), Fleet.end(), [](Ship& ship)
+	        {
+	            if (ship.Name == "Aircraft Carrier")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::E, 1));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::E, 2));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::E, 3));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::E, 4));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::E, 5));
+	            }
+	            if (ship.Name == "Battleship")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::A, 5));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::A, 6));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::A, 7));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::A, 8));
+	            }
+	            if (ship.Name == "Submarine")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::A, 1));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::B, 2));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::C, 3));
+	            }
+	            if (ship.Name == "Destroyer")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::F, 8));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::G, 8));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::H, 8));
+	            }
+	            if (ship.Name == "Patrol Boat")
+	            {
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::C, 7));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::C, 8));
+	            }
+	        });
+	    }
   }
 }
+
+

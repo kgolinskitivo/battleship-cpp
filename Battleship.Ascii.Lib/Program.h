@@ -29,7 +29,14 @@ namespace Battleship
 	  static void InitializeGame();
 
 	  static void InitializeMyFleet();
+
 	  static void InitializeEnemyFleet(list<Ship> &Fleet);
+	  static void InitializeEnemyFleet1(list<Ship> &Fleet);
+      static void InitializeEnemyFleet2(list<Ship> &Fleet);
+      static void InitializeEnemyFleet3(list<Ship> &Fleet);
+      static void InitializeEnemyFleet4(list<Ship> &Fleet);
+      static void InitializeEnemyFleet5(list<Ship> &Fleet);
+      static void InitializeEnemyFleet6(list<Ship> &Fleet);
 
       static void MessageYouWon();
       static void MessageYouLost();
