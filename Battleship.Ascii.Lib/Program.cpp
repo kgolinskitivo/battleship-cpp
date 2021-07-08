@@ -265,12 +265,7 @@ namespace Battleship
 
     void Program::InitializeEnemyFleet(list<Ship>& Fleet)
     {
-//        using fun = void (list<Ship> &Fleet);
-//        fun tab[] = {
-//                        &Program::InitializeEnemyFleet,
-//        };
-
-        switch (rand() % 5) {
+        switch (rand() % 6) {
             case 0:
                 InitializeEnemyFleet1(Fleet);
                 break;
@@ -285,6 +280,9 @@ namespace Battleship
                 break;
             case 4:
                 InitializeEnemyFleet5(Fleet);
+                break;
+            case 5:
+                InitializeEnemyFleet6(Fleet);
                 break;
         }
     }
