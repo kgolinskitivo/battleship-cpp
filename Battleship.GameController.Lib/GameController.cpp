@@ -30,6 +30,7 @@ namespace Battleship
 		{
 			if (p == shot)
 			{
+				p.isHit = true;
 				return true;
 			}
 
