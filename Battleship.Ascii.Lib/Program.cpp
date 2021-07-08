@@ -16,6 +16,9 @@
 using namespace Battleship::GameController;
 using namespace Battleship::GameController::Contracts;
 
+static Position startPos(Letters::A, 1);
+static Position endPos(Letters::H, 8);
+
 namespace Battleship
 {
   namespace Ascii
@@ -101,6 +104,11 @@ namespace Battleship
                 cout << "Improper position. Try again. ";
                 continue;
             }
+            // check if position is on grid
+            if (!IsPositionOnGrid(startPos, endPos, position)) {
+                cout << "Position not on grid. Try again. ";
+                continue;
+            }
             break;
         } while (true);
 
@@ -167,6 +175,22 @@ namespace Battleship
         }
       }
       while (!endOfTheGame);
+    }
+
+    bool Program::IsPositionOnGrid(const Position& gridStart, const Position& gridEnd, Position& position)
+    {
+        char cColumn = toupper(position.Column);
+
+        if (cColumn < gridStart.Column || cColumn > gridEnd.Column) {
+            cerr << " Column not on screen" << endl;
+            return false;
+        }
+
+        if (position.Row < gridStart.Row || position.Row > gridEnd.Row) {
+            cerr << " Row not on screen" << endl;
+            return false;
+        }
+        return true;
     }
 
 	Position Program::ParsePosition(string &input)
@@ -259,6 +283,11 @@ namespace Battleship
                         inputPosition = ParsePosition(input);
                     } catch (...) {
                         cout << "Improper position. Try again. ";
+                        continue;
+                    }
+                    // check if position is on grid
+                    if (!IsPositionOnGrid(startPos, endPos, inputPosition)) {
+                        cout << "Position not on grid. Try again. ";
                         continue;
                     }
                     break;
