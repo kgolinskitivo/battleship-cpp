@@ -265,6 +265,7 @@ namespace Battleship
 
     void Program::InitializeEnemyFleet(list<Ship>& Fleet)
     {
+        srand (time(NULL));
         switch (rand() % 6) {
             case 0:
                 InitializeEnemyFleet1(Fleet);
