@@ -13,6 +13,9 @@ public:
     static const Colour red;
     static const Colour yellow;
     static const Colour colorEnd;
+
+    static const Colour hit;
+    static const Colour miss;
 };
 
 } /* namespace Ascii */
