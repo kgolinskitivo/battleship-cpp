@@ -175,6 +175,12 @@ namespace Battleship
         }
       }
       while (!endOfTheGame);
+
+      cout << Colours::yellow;
+      cout << "type any key to close the game\n";
+      cout << Colours::colorEnd;
+      string input;
+      getline(cin, input);
     }
 
     bool Program::IsPositionOnGrid(const Position& gridStart, const Position& gridEnd, Position& position)
