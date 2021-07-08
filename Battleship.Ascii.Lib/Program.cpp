@@ -116,7 +116,7 @@ namespace Battleship
         if (isHit)
         {
             // Console::Beep();
-            cout << Colours::green;
+            cout << Colours::hit;
 			cout << R"(                \         .  ./         )" << endl;
             cout << R"(              \      .:"";'.:..""   /   )" << endl;
             cout << R"(                  (M^^.^~~:.'"").       )" << endl;
@@ -130,7 +130,7 @@ namespace Battleship
 		}
 		else
 		{
-		    cout << Colours::red;
+		    cout << Colours::miss;
 			cout << ("Miss") << endl;
 			cout << Colours::colorEnd;
 		}
@@ -148,7 +148,7 @@ namespace Battleship
         if (isHit)
         {
             //Console::Beep();
-            cout << Colours::green;
+            cout << Colours::hit;
 			cout << R"(                \         .  ./         )" << endl;
             cout << R"(              \      .:"";'.:..""   /   )" << endl;
             cout << R"(                  (M^^.^~~:.'"").       )" << endl;
@@ -163,7 +163,7 @@ namespace Battleship
         }
 		else
 		{
-		    cout << Colours::red;
+		    cout << Colours::miss;
 			cout << "(Computer shoot in " << position << " and missed )   " << endl;
 			cout << Colours::colorEnd;
 		}
