@@ -241,7 +241,7 @@ namespace Battleship
       const int size = 8;
       srand((unsigned int) time(NULL));
       Letters lColumn = (Letters)(rand() % size);
-      int nRow = (rand() % size);
+      int nRow = (rand() % size) + 1;
 
       Position position(lColumn, nRow);
       return position;
