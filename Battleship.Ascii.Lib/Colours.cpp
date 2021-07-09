@@ -10,6 +10,7 @@ const Colours::Colour Colours::yellow = { 0x1b, '[', '0', ';', '3', '3', 'm', 0 
 const Colours::Colour Colours::colorEnd = { 0x1b, '[', '0', 'm', 0 };
 const Colours::Colour Colours::hit = red;
 const Colours::Colour Colours::miss = blue;
+const Colours::Colour Colours::sunk = yellow;
 
 } /* namespace Ascii */
 } /* namespace Battleship */

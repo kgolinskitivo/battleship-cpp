@@ -16,6 +16,7 @@ public:
 
     static const Colour hit;
     static const Colour miss;
+    static const Colour sunk;
 };
 
 } /* namespace Ascii */
