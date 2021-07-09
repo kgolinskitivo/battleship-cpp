@@ -588,8 +588,8 @@ namespace Battleship
 	            }
 	            if (ship.Name == "Submarine")
 	            {
-	                ship.Positions.insert(ship.Positions.end(), Position(Letters::A, 1));
-	                ship.Positions.insert(ship.Positions.end(), Position(Letters::B, 2));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::C, 1));
+	                ship.Positions.insert(ship.Positions.end(), Position(Letters::C, 2));
 	                ship.Positions.insert(ship.Positions.end(), Position(Letters::C, 3));
 	            }
 	            if (ship.Name == "Destroyer")
