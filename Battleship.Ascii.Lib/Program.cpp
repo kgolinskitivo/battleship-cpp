@@ -139,7 +139,9 @@ namespace Battleship
         {
           bool isSunk = GameController::GameController::IsSunk(*ship);
           if (isSunk) {
+            cout << Colours::sunk;
             cout << "Ship " << ship->Name << " size " << ship->Size << " is sunk" << endl;
+            cout << Colours::colorEnd;
           }
 
         }
