@@ -135,6 +135,15 @@ namespace Battleship
 			cout << Colours::colorEnd;
 		}
 
+        for (auto ship = Program::enemyFleet.begin(); ship != Program::enemyFleet.end(); ship++)
+        {
+          bool isSunk = GameController::GameController::IsSunk(*ship);
+          if (isSunk) {
+            cout << "Ship " << ship->Name << " size " << ship->Size << " is sunk" << endl;
+          }
+
+        }
+
         endOfTheGame = IsEndOfTheGame();
         if (endOfTheGame) {
             MessageYouWon();
@@ -168,15 +177,7 @@ namespace Battleship
 			cout << Colours::colorEnd;
 		}
 
-        for (auto ship = Program::enemyFleet.begin(); ship != Program::enemyFleet.end(); ship++)
-        {
-          bool isSunk = GameController::GameController::IsSunk(*ship);
-          if (isSunk) {
-            cout << "Ship " << ship->Name << " size " << ship->Size << " is sunk" << endl;
-          }
 
-        }
-        
         endOfTheGame = IsEndOfTheGame();
         if (endOfTheGame) {
             MessageYouLost();
