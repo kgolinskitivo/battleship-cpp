@@ -273,7 +273,6 @@ namespace Battleship
             if (!GameController::GameController::IsSunk(*ship)) {
                isEnd = false;
                break;
-            } else {
             }
         }
         if (isEnd) {
@@ -285,7 +284,6 @@ namespace Battleship
             if (!GameController::GameController::IsSunk(*ship)) {
                isEnd = false;
                break;
-            } else {
             }
         }
 
