@@ -47,6 +47,9 @@ namespace Battleship
 	  static Position GetRandomPosition();
 
       static bool IsPositionOnGrid(const Position& gridStart, const Position& gridEnd, Position& position);
+
+      using EnemyFleetInitFunction = void(list<Ship> &);
+      static EnemyFleetInitFunction* getEnemyFleetInitFunction();
 	};
   }
 }

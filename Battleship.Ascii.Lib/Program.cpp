@@ -258,34 +258,43 @@ namespace Battleship
 
     void Program::InitializeGame()
     {
+      srand (time(NULL));
+
       InitializeMyFleet();
 
       InitializeEnemyFleet(enemyFleet);
     }
 
-    void Program::InitializeEnemyFleet(list<Ship>& Fleet)
+    Program::EnemyFleetInitFunction* Program::getEnemyFleetInitFunction()
     {
-        srand (time(NULL));
+        Program::EnemyFleetInitFunction* ret;
         switch (rand() % 6) {
             case 0:
-                InitializeEnemyFleet1(Fleet);
+                ret = &Program::InitializeEnemyFleet1;
                 break;
             case 1:
-                InitializeEnemyFleet2(Fleet);
+                ret = &Program::InitializeEnemyFleet2;
                 break;
             case 2:
-                InitializeEnemyFleet3(Fleet);
+                ret = &Program::InitializeEnemyFleet3;
                 break;
             case 3:
-                InitializeEnemyFleet4(Fleet);
+                ret = &Program::InitializeEnemyFleet4;
                 break;
             case 4:
-                InitializeEnemyFleet5(Fleet);
+                ret = &Program::InitializeEnemyFleet5;
                 break;
             case 5:
-                InitializeEnemyFleet6(Fleet);
+                ret = &Program::InitializeEnemyFleet6;
                 break;
         }
+        return ret;
+    }
+
+
+    void Program::InitializeEnemyFleet(list<Ship>& Fleet)
+    {
+        getEnemyFleetInitFunction()(Fleet);
     }
 
 	void Program::InitializeMyFleet()
