@@ -33,7 +33,7 @@ Letters.o: ../Battleship.GameController.Lib/Letters.cpp ../Battleship.GameContro
 GameController.o: ../Battleship.GameController.Lib/GameController.cpp ../Battleship.GameController.Lib/GameController.h
 	$(CXX) $(CFLAGS) -c -o $@ $<
 
-TestRunner.exe: CheckIsHitTests.o IsShipValidTests.o ParsePositionTests.o TestRunner.o GameController.o Ship.o Position.o Letters.o Program.o Colours.o
+TestRunner.exe: CheckIsHitTests.o IsShipValidTests.o ParsePositionTests.o EnemyFleetsTests.o TestRunner.o GameController.o Ship.o Position.o Letters.o Program.o Colours.o
 	$(CXX) $(CFLAGS) $^ -o $@ -L${CPPUNIT_PATH}/lib -lstdc++ -lcppunit -ldl
 
 CheckIsHitTests.o: ../Battleship.GameController.Tests.CppUnit/CheckIsHitTests.cpp ../Battleship.GameController.Tests.CppUnit/CheckIsHitTests.h GameController.o Ship.o Position.o Letters.o
@@ -44,7 +44,10 @@ IsShipValidTests.o: ../Battleship.GameController.Tests.CppUnit/IsShipValidTests.
 
 ParsePositionTests.o: ../Battleship.Ascii.Tests.CppUnit/ParsePositionTests.cpp ../Battleship.Ascii.Tests.CppUnit/ParsePositionTests.h GameController.o Ship.o Position.o Letters.o Program.o
 	$(CXX) $(CFLAGS) -c -o $@ $< -I${CPPUNIT_PATH}/include
-
+	
+EnemyFleetsTests.o: ../Battleship.Ascii.Tests.CppUnit/EnemyFleetsTests.cpp ../Battleship.Ascii.Tests.CppUnit/EnemyFleetsTests.h GameController.o Ship.o Position.o Letters.o Program.o
+	$(CXX) $(CFLAGS) -c -o $@ $< -I${CPPUNIT_PATH}/include
+	
 TestRunner.o: ../Battleship.GameController.Tests.CppUnit/TestRunner.cpp
 	$(CXX) $(CFLAGS) -c -o $@ $< -I${CPPUNIT_PATH}/include
 
