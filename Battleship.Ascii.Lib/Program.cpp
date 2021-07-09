@@ -175,6 +175,12 @@ namespace Battleship
         }
       }
       while (!endOfTheGame);
+
+      cout << Colours::yellow;
+      cout << "type any key to close the game\n";
+      cout << Colours::colorEnd;
+      string input;
+      getline(cin, input);
     }
 
     bool Program::IsPositionOnGrid(const Position& gridStart, const Position& gridEnd, Position& position)
@@ -252,8 +258,26 @@ namespace Battleship
 
     bool Program::IsEndOfTheGame()
     {
-        //TODO we are waiting for info how to check that ship is dead
-        return false;
+        bool isEnd = true;
+        for (auto ship  = myFleet.begin(); ship != myFleet.end(); ++ship) {
+            if (!GameController::GameController::IsSunk(*ship)) {
+               isEnd = false;
+               break;
+            }
+        }
+        if (isEnd) {
+            return true;
+        }
+
+        isEnd = true;
+        for (auto ship = enemyFleet.begin(); ship != enemyFleet.end(); ++ship) {
+            if (!GameController::GameController::IsSunk(*ship)) {
+               isEnd = false;
+               break;
+            }
+        }
+
+        return isEnd;
     }
 
     void Program::InitializeGame()
