@@ -8,6 +8,7 @@ namespace Battleship
     {
       Position::Position(Letters column, int row) : Column(column), Row(row)
       {
+        isHit = false;
       }
 
       Position::Position(const Position &init) : Column(init.Column), Row(init.Row)
