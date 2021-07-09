@@ -150,7 +150,7 @@ namespace Battleship
             continue;
         }
 
-        position = GetRandomPosition();
+        position = GetRandomPosition(startPos, endPos);
         isHit = GameController::GameController::CheckIsHit(myFleet, position);
         cout << endl;
 
@@ -236,12 +236,14 @@ namespace Battleship
 	  return outPosition;
     }
 
-    Position Program::GetRandomPosition()
+    Position Program::GetRandomPosition(const Position& gridStart, const Position& gridEnd)
     {
-      const int size = 8;
+      const int size = (gridEnd.Column - gridStart.Column) + 1;
       srand((unsigned int) time(NULL));
       Letters lColumn = (Letters)(rand() % size);
-      int nRow = (rand() % size) + 1;
+
+      const int row_size = (gridEnd.Row - gridStart.Row) + 1;
+      int nRow = (rand() % row_size) + 1;
 
       Position position(lColumn, nRow);
       return position;

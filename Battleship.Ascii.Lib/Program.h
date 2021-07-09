@@ -44,7 +44,7 @@ namespace Battleship
 
 	public:
 	  static Position ParsePosition(string &input);
-	  static Position GetRandomPosition();
+	  static Position GetRandomPosition(const Position& gridStart, const Position& gridEnd);
 
       static bool IsPositionOnGrid(const Position& gridStart, const Position& gridEnd, Position& position);
 
